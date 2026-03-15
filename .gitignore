@@ -1,2 +1,7 @@
 node_modules/
 .DS_Store
+dist/
+functions/lib/
+.env.local
+*.env.local
+serviceAccountKey.json

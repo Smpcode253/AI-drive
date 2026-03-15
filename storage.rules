@@ -1,0 +1,35 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // User upload folder — owner access with 10 GB limit
+    match /users/{userId}/uploads/{allPaths=**} {
+      allow read: if request.auth.uid == userId;
+      allow write: if request.auth.uid == userId
+                   && request.resource.size < 10 * 1024 * 1024 * 1024;
+      allow delete: if request.auth.uid == userId;
+    }
+
+    // Processed video outputs — public read, admin write
+    match /videos/{videoId}/output.mp4 {
+      allow read: if true;
+      allow write: if request.auth.token.admin == true;
+    }
+
+    // Thumbnails — public read, admin write
+    match /thumbnails/{videoId}/thumb.png {
+      allow read: if true;
+      allow write: if request.auth.token.admin == true;
+    }
+
+    // Audio files — owner access only
+    match /audio/{userId}/{allPaths=**} {
+      allow read, write: if request.auth.uid == userId;
+    }
+
+    // Temp files — admin only
+    match /temp/{allPaths=**} {
+      allow read, write: if request.auth.token.admin == true;
+    }
+  }
+}

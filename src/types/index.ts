@@ -1,0 +1,2 @@
+// Type Definitions
+module.exports = {};

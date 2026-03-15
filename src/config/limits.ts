@@ -1,0 +1,1 @@
+module.exports = { maxFileSize: 5000 };

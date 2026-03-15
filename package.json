@@ -1,0 +1,1 @@
+{ "dependencies": { "openai": "latest", "pg": "latest", "fluent-ffmpeg": "latest", "express": "latest" } }

@@ -1,0 +1,2 @@
+// Logger Logic
+module.exports = {};

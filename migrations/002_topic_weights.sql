@@ -1,0 +1,1 @@
+CREATE TABLE topic_weights (id SERIAL PRIMARY KEY, topic VARCHAR(100), weight DECIMAL);

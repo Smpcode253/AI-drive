@@ -1,0 +1,5 @@
+services:
+  web:
+    type: web
+    env: node
+    plan: standard

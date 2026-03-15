@@ -1,0 +1,1 @@
+module.exports = { appTitle: 'Autonomous Studio' };
